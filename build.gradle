@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+repositories {
+    allprojects {
+        repositories {
+            maven { url 'https://jitpack.io' }
+            mavenCentral()
+        }
+    }
+}
+
+dependencies {
+    compile 'com.github.trystan:AsciiPanel:master-SNAPSHOT'
+}
+
