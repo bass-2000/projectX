@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 public class Game {
     JFrame window;
     Container con;
-    JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel, playerPanel;
-    JLabel titleNameLabel, hpLabel, hpLabelNumber, weaponLabel, weaponLabelName;
+    JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel, playerPanel, picturePanel;
+    JLabel titleNameLabel, hpLabel, hpLabelNumber, weaponLabel, weaponLabelName, pictureLabel;
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
     JButton startButton, choice1, choice2, choice3, choice4;
@@ -24,11 +24,13 @@ public class Game {
     public Game() {
 
         window = new JFrame();
-        window.setSize(800, 600);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        window.setSize(1024, 768);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.getContentPane().setBackground(Color.black);
         window.setLayout(null);
         window.setVisible(true);
+        window.setLocation(dim.width / 2 - window.getSize().width / 2, dim.height / 2 - window.getSize().height / 2);
         con = window.getContentPane();
 
         titleNamePanel = new JPanel();
@@ -42,6 +44,13 @@ public class Game {
         startButtonPanel.setBounds(300, 400, 200, 100);
         startButtonPanel.setBackground(Color.black);
 
+        ImageIcon icon = new ImageIcon("./src/main/resources/large.jpg");
+        pictureLabel = new JLabel("Picture");
+        pictureLabel.setIcon(icon);
+        picturePanel = new JPanel();
+        picturePanel.setBounds(300, 200, 300, 300);
+        picturePanel.add(pictureLabel);
+
         startButton = new JButton("START");
         startButton.setBackground(Color.black);
         startButton.setForeground(Color.white);
@@ -53,7 +62,9 @@ public class Game {
         startButtonPanel.add(startButton);
 
         con.add(titleNamePanel);
+        con.add(picturePanel);
         con.add(startButtonPanel);
+
     }
 
     public static void main(String[] args) {
