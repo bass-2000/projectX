@@ -1,4 +1,4 @@
-package ru.projectx;
+package ru.projectx.old;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +17,7 @@ public class Game {
     int playerHP, monsterHP, silverRing;
     String weapon, position;
 
-    TitleScreenHandler tsHandler = new TitleScreenHandler();
+    //    TitleScreenHandler tsHandler = new TitleScreenHandler();
     ChoiceHandler choiceHandler = new ChoiceHandler();
 
 
@@ -54,7 +54,7 @@ public class Game {
         startButton.setBackground(Color.black);
         startButton.setForeground(Color.white);
         startButton.setFont(normalFont);
-        startButton.addActionListener(tsHandler);
+//        startButton.addActionListener(tsHandler);
         startButton.setFocusPainted(false);
 
         titleNamePanel.add(titleNameLabel);
@@ -449,11 +449,5 @@ public class Game {
 
     }
 
-    public class TitleScreenHandler implements ActionListener {
 
-        public void actionPerformed(ActionEvent event) {
-
-            createGameScreen();
-        }
-    }
 }
