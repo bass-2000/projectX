@@ -24,13 +24,11 @@ public class Game {
     public Game() {
 
         window = new JFrame();
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        window.setSize(1024, 768);
+        window.setSize(800, 600);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.getContentPane().setBackground(Color.black);
         window.setLayout(null);
         window.setVisible(true);
-        window.setLocation(dim.width / 2 - window.getSize().width / 2, dim.height / 2 - window.getSize().height / 2);
         con = window.getContentPane();
 
         titleNamePanel = new JPanel();
@@ -45,11 +43,12 @@ public class Game {
         startButtonPanel.setBackground(Color.black);
 
         ImageIcon icon = new ImageIcon("./src/main/resources/large.jpg");
-        pictureLabel = new JLabel("Picture");
+        pictureLabel = new JLabel("Picture space");
         pictureLabel.setIcon(icon);
         picturePanel = new JPanel();
-        picturePanel.setBounds(300, 200, 300, 300);
         picturePanel.add(pictureLabel);
+        picturePanel.setBounds(300, 200, 300, 300);
+        picturePanel.setBorder(BorderFactory.createBevelBorder(1));
 
         startButton = new JButton("START");
         startButton.setBackground(Color.black);
