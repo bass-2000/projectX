@@ -1,4 +1,4 @@
-package ru.projectx;
+package ru.projectx.old;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 public class Game {
     JFrame window;
     Container con;
-    JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel, playerPanel;
-    JLabel titleNameLabel, hpLabel, hpLabelNumber, weaponLabel, weaponLabelName;
+    JPanel titleNamePanel, startButtonPanel, mainTextPanel, choiceButtonPanel, playerPanel, picturePanel;
+    JLabel titleNameLabel, hpLabel, hpLabelNumber, weaponLabel, weaponLabelName, pictureLabel;
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 28);
     JButton startButton, choice1, choice2, choice3, choice4;
@@ -17,7 +17,7 @@ public class Game {
     int playerHP, monsterHP, silverRing;
     String weapon, position;
 
-    TitleScreenHandler tsHandler = new TitleScreenHandler();
+    //    TitleScreenHandler tsHandler = new TitleScreenHandler();
     ChoiceHandler choiceHandler = new ChoiceHandler();
 
 
@@ -42,18 +42,28 @@ public class Game {
         startButtonPanel.setBounds(300, 400, 200, 100);
         startButtonPanel.setBackground(Color.black);
 
+        ImageIcon icon = new ImageIcon("./src/main/resources/large.jpg");
+        pictureLabel = new JLabel("Picture space");
+        pictureLabel.setIcon(icon);
+        picturePanel = new JPanel();
+        picturePanel.add(pictureLabel);
+        picturePanel.setBounds(300, 200, 300, 300);
+        picturePanel.setBorder(BorderFactory.createBevelBorder(1));
+
         startButton = new JButton("START");
         startButton.setBackground(Color.black);
         startButton.setForeground(Color.white);
         startButton.setFont(normalFont);
-        startButton.addActionListener(tsHandler);
+//        startButton.addActionListener(tsHandler);
         startButton.setFocusPainted(false);
 
         titleNamePanel.add(titleNameLabel);
         startButtonPanel.add(startButton);
 
         con.add(titleNamePanel);
+        con.add(picturePanel);
         con.add(startButtonPanel);
+
     }
 
     public static void main(String[] args) {
@@ -439,11 +449,5 @@ public class Game {
 
     }
 
-    public class TitleScreenHandler implements ActionListener {
 
-        public void actionPerformed(ActionEvent event) {
-
-            createGameScreen();
-        }
-    }
 }
